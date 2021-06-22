@@ -1,0 +1,14 @@
+resolver: 
+  url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/18/0.yaml
+
+packages:
+- .
+
+extra-deps:
+- beam-core-0.9.0.0@sha256:e5b1cb4d5b8a8a166f3373e8718672a3884feb9a5a133404b047b0af76538023,5282
+- beam-postgres-0.5.0.0@sha256:3008f802b25fffaee2edf7f8f840a073ee630049031cda0b4ea7912b6656c813,4333
+- beam-migrate-0.5.0.0@sha256:d3f7e333ec9e96122ccec6be0d38a88f766dfc248323be73fd0b3cee245ea421,4923
+
+# flags: {}
+
+allow-newer: true
