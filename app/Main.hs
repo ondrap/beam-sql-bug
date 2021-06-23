@@ -76,15 +76,9 @@ trackingDb = defaultDbSettings
 
 main :: IO ()
 main = do
-  conn <- connectPostgreSQL "dbname=tracking"
+  conn <- connectPostgreSQL "dbname=test"
   pmlist <- runBeamPostgres conn $ do
      runSelectReturningList $ select $ do
                 all_ (_dbInternalPayments trackingDb)
   for_ pmlist $ \payment -> do
-    glist <- runBeamPostgres conn $ do
-        runSelectReturningList $ select $ do
-            lst <- all_ (_dbInternalPayments trackingDb)
-            pure (ipPaymid lst)
-    for_ glist $ \(_ :: Int32) -> do
-      return ()
     liftIO $ print payment
